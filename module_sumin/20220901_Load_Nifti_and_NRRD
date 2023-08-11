@@ -1,0 +1,43 @@
+import SimpleITK as sitk
+import copy
+import numpy as np
+
+path_nifti = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20220901_cHS_3D_Annot\20220901_TestAnnotation\ID_60ce2d4860.nii.gz'
+path_annot = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20220901_cHS_3D_Annot\20220901_TestAnnotation\ID_60ce2d4860_Segmentation.seg.nrrd'
+
+# 니프티파일 불러와서 windowing, mask 만들기
+def gray_img(path):
+    image = sitk.ReadImage(path)
+    array_image = sitk.GetArrayFromImage(image)
+    w_array_image = windowing(array_image[:, :, :], 40, 80, rescale=False)
+    return w_array_image
+
+def mask_img(path):
+    mask = sitk.ReadImage(path)
+    array_mask = sitk.GetArrayFromImage(mask)
+    return array_mask
+
+def windowing(img, window_center, window_width, rescale=True):
+    eps = 1e-10
+
+    window_min = window_center - window_width // 2
+    window_max = window_center + window_width // 2
+
+    w_img = copy.deepcopy(img)
+
+    w_img[w_img < window_min] = window_min
+    w_img[w_img > window_max] = window_max
+
+    if rescale:
+        # Extra rescaling to 0-1, not in the original notebook
+        w_img = (w_img - window_min) / (window_max - window_min + eps)
+
+    return w_img
+
+image = gray_img(path_nifti) / 80.
+
+mask = sitk.ReadImage(path_annot)
+array_mask = sitk.GetArrayFromImage(mask)
+
+print(image)
+print(array_mask)
