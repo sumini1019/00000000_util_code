@@ -35,9 +35,13 @@ df = pd.DataFrame(columns=columns)
 # path_slice = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\3_until_6th\image_png'
 # path_label_subtype = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\3_until_6th\label_png_subtype'
 
-path_GT_csv = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230811_GT_ICH_Annotation_n3727_7차수령데이터까지.csv'
-path_slice = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\5_until_7th\image_png'
-path_label_subtype = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\5_until_7th\label_png_subtype'
+# path_GT_csv = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230811_GT_ICH_Annotation_n3727_7차수령데이터까지.csv'
+# path_slice = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\5_until_7th\image_png'
+# path_label_subtype = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\5_until_7th\label_png_subtype'
+
+path_GT_csv = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230905_GT_ICH_Annotation_n4258_8차수령데이터까지.csv'
+path_slice = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\7_until_8th\image_png'
+path_label_subtype = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\7_until_8th\label_png_subtype'
 
 
 
@@ -87,4 +91,4 @@ for index, item in enumerate(list_slice):
     df = pd.concat([df, pd.DataFrame(result_dict, index=[0])], ignore_index=True)
 
 path_save = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령'
-df.to_csv(os.path.join(path_save, f'20230811_GT_ICH_Annotation_Slicewise_n{len(df)}_7차수령데이터까지.csv'), index=False)
+df.to_csv(os.path.join(path_save, f'20230905_GT_ICH_Annotation_Slicewise_n{len(df)}_8차수령데이터까지.csv'), index=False)

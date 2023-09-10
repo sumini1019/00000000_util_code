@@ -7,10 +7,10 @@ import os
 import shutil
 
 # 소스 폴더 경로들
-src_paths = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230810_merged_dataset_until_7th'
+src_paths = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230901_merged_dataset_until_8th'
 
 # 대상 폴더 경로
-dst_path = r"D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\label_nrrd(until_7th)"
+dst_path = r"D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\label_nrrd(until_8th)"
 os.makedirs(dst_path, exist_ok=True)
 
 # a 폴더에서 .nrrd 파일만 선택하여 b 폴더로 복사

@@ -8,14 +8,16 @@ import shutil
 
 # 소스 폴더 경로들
 src_paths = [
-    r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230807_7차 수령 데이터\EDH-B_exclude_duplicate",
-    r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230807_7차 수령 데이터\ICH-B_exclude_duplicate",
-    r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230807_7차 수령 데이터\IVH-B_exclude_duplicate",
-    r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230807_7차 수령 데이터\SDH-B_exclude_duplicate",
+    r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230901_8차 수령 데이터\SAH-A_exclude_duplicate",
+    r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230901_8차 수령 데이터\SAH-B_exclude_duplicate",
 ]
 
 # 대상 폴더 경로
-dst_path = r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230810_merged_dataset_until_7th"
+dst_path_before = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230810_merged_dataset_until_7th'
+dst_path = r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230901_merged_dataset_until_8th\new"
+
+# 기존 데이터셋을 복사
+# shutil.copytree(dst_path_before, dst_path)
 
 # 대상 폴더에 이미 있는 파일들의 인덱스 목록 생성
 existing_indices = {filename[:4] for filename in os.listdir(dst_path)}

@@ -8,7 +8,7 @@ import glob
 # 2023.04.07
 # - Heuron Annot에 대응하는 기존 Annot 데이터셋을 생성해야함
 path_src_PrevAnnot = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\TrainSet_for_Segmentation★★★'
-path_dst_PrevAnnot = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\6_until_7th(Prev_Annot)'
+path_dst_PrevAnnot = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\8_until_8th(Prev_Annot)'
 # path_dst_PrevAnnot = r'D:\00000000_Data\20230403_HeuronAnnotation\3_png(Prev_Annot)'
 
 os.makedirs(os.path.join(path_dst_PrevAnnot, 'image_png'), exist_ok=True)
@@ -20,8 +20,10 @@ os.makedirs(os.path.join(path_dst_PrevAnnot, 'label_subtype'), exist_ok=True)
 #     r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230406_GT_ICH_Annotation_Slicewise_n73902_5차수령데이터까지.csv')
 # df_HeuronAnnot = read_csv_autodetect_encoding(
 #     r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230717_GT_ICH_Annotation_Slicewise_n105921_6차수령데이터까지.csv')
+# df_HeuronAnnot = read_csv_autodetect_encoding(
+#     r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230811_GT_ICH_Annotation_Slicewise_n124062_7차수령데이터까지.csv')
 df_HeuronAnnot = read_csv_autodetect_encoding(
-    r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230811_GT_ICH_Annotation_Slicewise_n124062_7차수령데이터까지.csv')
+    r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230905_GT_ICH_Annotation_Slicewise_n141821_8차수령데이터까지.csv')
 
 
 list_Series = list(set(df_HeuronAnnot['Series_ID']))

@@ -1,26 +1,40 @@
-import pandas as pd
-import random
-import shutil
-import os
+# Initialize avg-level metrics for validation
+avg_test_dice_score = 0
+avg_test_iou = 0
+avg_test_sensitivity = 0
+avg_test_specificity = 0
+avg_test_accuracy = 0
 
-path_csv = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20220916_탑병원 의뢰 Annotation 데이터 및 프로그램 (Hemo, Normal 시리즈 기준)\3. Ground Truth (Index 추가)\cHS_Label_Patient_wise_indexed (only_Normal).csv'
-path_src = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20220916_탑병원 의뢰 Annotation 데이터 및 프로그램 (Hemo, Normal 시리즈 기준)\2. 3D Annotation\1. Data_Series\Normal_temp'
-path_dst = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20220916_탑병원 의뢰 Annotation 데이터 및 프로그램 (Hemo, Normal 시리즈 기준)\2. 3D Annotation\1. Data_Series\Normal_temp_modified'
+with torch.no_grad():
+    for batch_idx, (data, target) in enumerate(test_loader):
+        data, target = data.to(device), target.to(device)
+        output = model(data)
+        loss = loss_criterion(output, target)
 
-os.makedirs(path_dst, exist_ok=True)
+        # calculate_and_log_metrics(output, target, loss, writer, test_steps, None, None, None, 'test')
+        metrics = calculate_and_log_metrics(output, target, loss, writer, test_steps, None, None, None, 'test',
+                                            do_visualize)
 
-df = pd.read_csv(path_csv)
+        # Update avg-level metrics
+        avg_test_dice_score += metrics['dice_score']
+        avg_test_iou += metrics['iou']
+        avg_test_sensitivity += metrics['sensitivity']
+        avg_test_specificity += metrics['specificity']
+        avg_test_accuracy += metrics['accuracy']
 
-list_nifti = os.listdir(path_src)
+        test_steps += 1  # Test 결과 저장
 
-for idx, fn_nifti in enumerate(list_nifti):
-    fn_nifti_without_ext = fn_nifti.replace('.nii.gz', '')
+# Calculate average avg-level metrics for testidation
+num_batches_test = len(test_loader)
+avg_test_dice_score /= num_batches_test
+avg_test_iou /= num_batches_test
+avg_test_sensitivity /= num_batches_test
+avg_test_specificity /= num_batches_test
+avg_test_accuracy /= num_batches_test
 
-    fn_nifti_with_index = df[df['ID_Series'].str.contains(fn_nifti_without_ext)]['ID_Series'].values[0]
-
-    fn_new = fn_nifti_with_index + '.nii.gz'
-
-    path_cur_src = os.path.join(path_src, fn_nifti)
-    path_cur_dst = os.path.join(path_dst, fn_new)
-
-    shutil.copy(path_cur_src, path_cur_dst)
+# Log average avg-level metrics to TensorBoard
+writer.add_scalar('avg_test_Dice_Score', avg_test_dice_score, 0)
+writer.add_scalar('avg_test_IoU', avg_test_iou, 0)
+writer.add_scalar('avg_test_Sensitivity', avg_test_sensitivity, 0)
+writer.add_scalar('avg_test_Specificity', avg_test_specificity, 0)
+writer.add_scalar('avg_test_Accuracy', avg_test_accuracy, 0)

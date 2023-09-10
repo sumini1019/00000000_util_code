@@ -6,6 +6,45 @@ import cv2
 import nrrd
 import shutil
 
+# path_root_img = r'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\image_Hemo_nifti (ALL)'
+# path_root_label = r'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\label_nrrd(unitl_4th)'
+# path_output_img = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\image_png'
+# path_output_label_subtype = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\label_png_subtype'
+# path_output_label_binary = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\label_png_binary'
+
+# path_root_img = r'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\image_Hemo_nifti (ALL)'
+# path_root_label = r'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\label_nrrd(until_5th)'
+# path_output_img = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\1_until_5th\image_png'
+# path_output_label_subtype = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\1_until_5th\label_png_subtype'
+# path_output_label_binary = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\1_until_5th\label_png_binary'
+# path_output_label_binary_exclude_Chronic = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\1_until_5th\label_png_binary_exclude_Chronic'
+# path_output_label_3class = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\1_until_5th\label_png_3class(hemo,chronic)'
+
+# path_root_img = r'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\image_Hemo_nifti (ALL)'
+# path_root_label = r'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\label_nrrd(until_6th)'
+# path_output_img = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\3_until_6th\image_png'
+# path_output_label_subtype = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\3_until_6th\label_png_subtype'
+# path_output_label_binary = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\3_until_6th\label_png_binary'
+# path_output_label_binary_exclude_Chronic = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\3_until_6th\label_png_binary_exclude_Chronic'
+# path_output_label_3class = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\3_until_6th\label_png_3class(hemo,chronic)'
+
+# path_root_img = r'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\image_Hemo_nifti (ALL)'
+# path_root_label = r'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\label_nrrd(until_7th)'
+# path_output_img = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\5_until_7th\image_png'
+# path_output_label_subtype = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\5_until_7th\label_png_subtype'
+# path_output_label_binary = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\5_until_7th\label_png_binary'
+# path_output_label_binary_exclude_Chronic = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\5_until_7th\label_png_binary_exclude_Chronic'
+# path_output_label_3class = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\5_until_7th\label_png_3class(hemo,chronic)'
+
+path_root_img = r'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\image_Hemo_nifti (ALL)'
+path_root_label = r'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\label_nrrd(until_8th)'
+path_output_img = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\7_until_8th\image_png'
+path_output_label_subtype = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\7_until_8th\label_png_subtype'
+path_output_label_binary = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\7_until_8th\label_png_binary'
+path_output_label_binary_exclude_Chronic = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\7_until_8th\label_png_binary_exclude_Chronic'
+path_output_label_3class = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\7_until_8th\label_png_3class(hemo,chronic)'
+
+
 def windowing(img, wc, ww):
     min_val = wc - ww / 2
     max_val = wc + ww / 2
@@ -156,37 +195,6 @@ def save_2d_slices(image_path, label_path,
     #     print(f'Label pixel value range: {label_min} to {label_max}')
 
 if __name__ == '__main__':
-    # path_root_img = r'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\image_Hemo_nifti (ALL)'
-    # path_root_label = r'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\label_nrrd(unitl_4th)'
-    # path_output_img = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\image_png'
-    # path_output_label_subtype = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\label_png_subtype'
-    # path_output_label_binary = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\label_png_binary'
-
-    # path_root_img = r'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\image_Hemo_nifti (ALL)'
-    # path_root_label = r'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\label_nrrd(until_5th)'
-    # path_output_img = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\1_until_5th\image_png'
-    # path_output_label_subtype = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\1_until_5th\label_png_subtype'
-    # path_output_label_binary = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\1_until_5th\label_png_binary'
-    # path_output_label_binary_exclude_Chronic = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\1_until_5th\label_png_binary_exclude_Chronic'
-    # path_output_label_3class = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\1_until_5th\label_png_3class(hemo,chronic)'
-
-    # path_root_img = r'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\image_Hemo_nifti (ALL)'
-    # path_root_label = r'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\label_nrrd(until_6th)'
-    # path_output_img = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\3_until_6th\image_png'
-    # path_output_label_subtype = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\3_until_6th\label_png_subtype'
-    # path_output_label_binary = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\3_until_6th\label_png_binary'
-    # path_output_label_binary_exclude_Chronic = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\3_until_6th\label_png_binary_exclude_Chronic'
-    # path_output_label_3class = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\3_until_6th\label_png_3class(hemo,chronic)'
-
-    path_root_img = r'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\image_Hemo_nifti (ALL)'
-    path_root_label = r'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\label_nrrd(until_7th)'
-    path_output_img = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\5_until_7th\image_png'
-    path_output_label_subtype = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\5_until_7th\label_png_subtype'
-    path_output_label_binary = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\5_until_7th\label_png_binary'
-    path_output_label_binary_exclude_Chronic = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\5_until_7th\label_png_binary_exclude_Chronic'
-    path_output_label_3class = r'D:\00000000_Data\20230403_HeuronAnnotation\2_png\5_until_7th\label_png_3class(hemo,chronic)'
-
-
     list_label = os.listdir(path_root_label)
 
     success_count = 0

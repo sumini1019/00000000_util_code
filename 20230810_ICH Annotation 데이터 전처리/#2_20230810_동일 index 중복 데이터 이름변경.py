@@ -5,10 +5,8 @@ import shutil
 
 # 여러 개의 타겟 폴더 설정
 src_paths = [
-    r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230807_7차 수령 데이터\EDH-B_exclude_duplicate",
-    r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230807_7차 수령 데이터\ICH-B_exclude_duplicate",
-    r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230807_7차 수령 데이터\IVH-B_exclude_duplicate",
-    r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230807_7차 수령 데이터\SDH-B_exclude_duplicate",
+    r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230901_8차 수령 데이터\SAH-A_exclude_duplicate",
+    r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230901_8차 수령 데이터\SAH-B_exclude_duplicate",
 ]
 
 def rename_files_in_directory(B_dir):
@@ -27,7 +25,7 @@ def rename_files_in_directory(B_dir):
 
         # `_1-label`, `_2-label`, `_3-label`, `_4-label`로 끝나는 파일명 확인 및 수정
         if file_without_ext.endswith(('_1-label', '_2-label', '_3-label', '_4-label')):
-            new_name = file_without_ext.replace('_1', '').replace('_2', '').replace('_3', '').replace('_4', '')
+            new_name = file_without_ext.replace('_1-label', '-label').replace('_2-label', '-label').replace('_3-label', '-label').replace('_4-label', '-label')
             if file.endswith('.nii.gz'):
                 new_name += '.nii.gz'
             else:

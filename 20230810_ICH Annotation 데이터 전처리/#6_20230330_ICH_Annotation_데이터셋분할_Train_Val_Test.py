@@ -7,7 +7,8 @@ import numpy as np
 # path_label = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230330_merged_dataset_until_4th'
 # path_label = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230406_merged_dataset_until_5th'
 # path_label = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230717_merged_dataset_until_6th'
-path_label = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230810_merged_dataset_until_7th'
+# path_label = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230810_merged_dataset_until_7th'
+path_label = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230901_merged_dataset_until_8th'
 
 # GT csv 저장 위치 및 파일명
 path_save = r'Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령'
@@ -125,8 +126,12 @@ for index, row in df.iterrows():
         else:
             df.loc[index, 'Label_' + class_value] = 0
 
+path_save_df = os.path.join(path_save, f'20230905_GT_ICH_Annotation_n{len(df)}_8차수령데이터까지.csv')
+
 df = df.sort_values(by='Image', ascending=True).reset_index(drop=True)
 
 # df.to_csv(f'20230331_GT_ICH_Annotation_n{len(df)}.csv', index=False)
 
-df.to_csv(os.path.join(path_save, f'20230811_GT_ICH_Annotation_n{len(df)}_7차수령데이터까지.csv'), index=False)
+df.to_csv(path_save_df, index=False)
+
+print(f'path_save: {path_save}')

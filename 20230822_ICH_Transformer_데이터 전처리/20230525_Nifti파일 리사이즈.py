@@ -10,13 +10,17 @@ mode = 'label' #'image', 'label'
 exclude_ChronicSDH = True
 
 if mode == 'image':
-    path_src = fr'D:\00000000 Code\20230523_SwinUNETR_ICH\data_ICH\{mode_train}\image_Hemo_nifti'
-    path_dst = fr'D:\00000000 Code\20230523_SwinUNETR_ICH\data_ICH\{mode_train}\image_Hemo_nifti_Resize_256'
+    # path_src = fr'D:\00000000 Code\20230523_SwinUNETR_ICH\data_ICH\{mode_train}\image_Hemo_nifti'
+    # path_dst = fr'D:\00000000 Code\20230523_SwinUNETR_ICH\data_ICH\{mode_train}\image_Hemo_nifti_Resize_256'
+    path_src = fr'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\image_Hemo_nifti (ALL)'
+    path_dst = fr'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\image_Hemo_nifti (ALL)_Resize_256'
 
     list_data = glob.glob(path_src + '/*.nii.gz')
 else:
-    path_src = fr'D:\00000000 Code\20230523_SwinUNETR_ICH\data_ICH\{mode_train}\label_nrrd(until_5th)'
-    path_dst = fr'D:\00000000 Code\20230523_SwinUNETR_ICH\data_ICH\{mode_train}\label_nrrd(until_5th)_Resize_256'
+    # path_src = fr'D:\00000000 Code\20230523_SwinUNETR_ICH\data_ICH\{mode_train}\label_nrrd(until_5th)'
+    # path_dst = fr'D:\00000000 Code\20230523_SwinUNETR_ICH\data_ICH\{mode_train}\label_nrrd(until_5th)_Resize_256'
+    path_src = fr'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\label_nrrd(until_7th)'
+    path_dst = fr'D:\00000000_Data\20230403_HeuronAnnotation\1_nifti_nrrd\label_nrrd(until_7th)_Resize_256'
 
     if exclude_ChronicSDH:
         path_dst = path_dst + '_exclude_ChronicSDH'

@@ -11,8 +11,8 @@ import shutil
 # B_dir = r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230717_6차 수령 데이터\ICH-A"
 # dst_dir = r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230717_6차 수령 데이터\ICH-A_exclude_duplicate"
 
-A_dir = r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230717_merged_dataset_until_6th"
-B_dir = r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230807_7차 수령 데이터\SDH-B"
+A_dir = r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230810_merged_dataset_until_7th"
+B_dir = r"Z:\Sumin_Jung\00000000_DATA\1_cHS\20210107_cHS_RSNA_Data\20230120_탑병원 Annotation 결과 수령\20230901_8차 수령 데이터\SAH-A"
 dst_dir = B_dir + "_exclude_duplicate"
 
 os.makedirs(dst_dir, exist_ok=True)
